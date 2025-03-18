@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import fantasyBooks from '../books/fantasy.json';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import SingleBookComp from './SingleBookComp';
 
 export default function AllTheBooksComp() {
   const [visibleBooks, setVisibleBooks] = useState(12);
@@ -20,14 +21,7 @@ export default function AllTheBooksComp() {
         </Row>
         <Row>
           {fantasyBooks.slice(0, visibleBooks).map((book) => (
-            <Col key={book.asin} md={3} xs={6}>
-              <Card className="mb-4">
-                <Card.Img variant="top" src={book.img} />
-                <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
+            <SingleBookComp key={book.asin} book={book} />
           ))}
         </Row>
         {visibleBooks < fantasyBooks.length && (
