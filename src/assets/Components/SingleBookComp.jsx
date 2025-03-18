@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Card, } from 'react-bootstrap';
 
 export default function SingleBookComp({book}) {
+
+  const [selected, setSelected] = useState(false);
+  
+
   return (
     <Col key={book.asin} md={3} xs={6}>
       <Card className="mb-4">

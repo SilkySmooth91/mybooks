@@ -19,3 +19,9 @@ h1 {
 .mt-4.container > div.mt-4.row:last-of-type {
   padding-bottom: 5rem;
 }
+
+.form-control {
+  min-width: 25rem;
+  min-height: 3rem;
+  border-radius: 30px;
+}
