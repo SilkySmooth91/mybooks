@@ -6,6 +6,7 @@ import SingleBookComp from './SingleBookComp';
 
 export default function AllTheBooksComp() {
   const [visibleBooks, setVisibleBooks] = useState(12);
+  const [selectedBookId, setSelectedBookId] = useState(null);
 
   const loadMoreBooks = () => {
     setVisibleBooks(prevVisibleBooks => prevVisibleBooks + 8);
@@ -34,13 +35,17 @@ export default function AllTheBooksComp() {
         <Row className="mt-4 mb-4">
         <Form className='d-flex justify-content-center'>
           <Form.Group className="mb-3" controlId="searchTitle">
-            <Form.Control type="input" placeholder="Search for title..." onChange={handleSearch}/>
+            <Form.Control className="comment-form" type="input" placeholder="Search for title..." onChange={handleSearch}/>
           </Form.Group>
         </Form>
       </Row>
         <Row>
           {books.slice(0, visibleBooks).map((book) => (
-            <SingleBookComp key={book.asin} book={book} />
+            <SingleBookComp 
+              key={book.asin} 
+              book={book} 
+              isSelected={selectedBookId === book.asin}
+              onBookSelect={setSelectedBookId}/>
           ))}
         </Row>
         {visibleBooks < fantasyBooks.length && (

@@ -20,16 +20,25 @@ h1 {
   padding-bottom: 5rem;
 }
 
-.form-control {
-  min-width: 25rem;
-  min-height: 3rem;
-  border-radius: 30px;
-}
-
 .book-cover {
   border: none;
 }
 
 .selected {
   border: 3px solid red;
+}
+
+.book-card {
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.form-control.comment-form {
+  min-width: 25rem;
+  min-height: 3rem;
+  border-radius: 30px;
 }
