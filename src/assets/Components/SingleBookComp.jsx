@@ -21,7 +21,7 @@ export default function SingleBookComp({book, isSelected, onBookSelect}) {
       <Col key={book.asin} md={3} xs={6} className='mb-4'>
         <BookCardComp book={book} onClick={handleClick} selected={isSelected} />
       </Col>
-      <Modal show={showModal} onHide={handleClose} size="lg" contentClassName="bg-dark text-white">
+      <Modal centered show={showModal} onHide={handleClose} size="lg" contentClassName="bg-dark text-white">
         <Modal.Header closeButton closeVariant="white">
           <Modal.Title>Recensioni degli utenti</Modal.Title>
         </Modal.Header>
@@ -31,7 +31,7 @@ export default function SingleBookComp({book, isSelected, onBookSelect}) {
               <BookCardComp book={book} />  
             </Col>
             <Col md={9}>
-              <CommentAreaComp bookId={book.asin} />
+              <CommentAreaComp book={book} bookId={book.asin} />
             </Col>
           </Row>
         </Modal.Body>

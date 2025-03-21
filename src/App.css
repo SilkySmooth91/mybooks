@@ -42,3 +42,8 @@ h1 {
   min-height: 3rem;
   border-radius: 30px;
 }
+
+.comments-container {
+  max-height: 20rem;
+  overflow-y: auto;
+}
