@@ -41,7 +41,22 @@ export default function AddCommentComp({bookId, onCommentAdded}) {
           }, 4000);
         }
     } catch (error) {
-        console.error('Error:', error);
+        setShowError(true);
+        setShowSuccess(false);
+        
+        if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+          console.error('Errore di rete:', error);
+        } else if (error.response?.status === 400) {
+          console.error('Errore di validazione:', error);
+        } else if (error.response?.status === 401) {
+          console.error('Errore di autenticazione:', error);
+        } else {
+          console.error('Errore generico:', error);
+        }
+
+        setTimeout(() => {
+          setShowError(false);
+        }, 4000);
     }
 };
 

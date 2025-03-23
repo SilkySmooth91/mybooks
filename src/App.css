@@ -32,7 +32,7 @@ h1 {
   cursor: pointer;
 }
 
-.book-card:hover {
+.book-card:hover:not(.modal *) {
   transform: scale(1.1);
   transition: transform 0.3s ease;
   z-index: 10;
@@ -47,4 +47,15 @@ h1 {
 .comments-container {
   max-height: 20rem;
   overflow-y: auto;
+}
+
+.placeholder-img {
+  height: 400px;
+  width: 100%;
+}
+
+.placeholder-card {
+  height: 100%;
+  background-color: #212529;
+  color: white;
 }

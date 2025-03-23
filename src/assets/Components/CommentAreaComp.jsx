@@ -4,6 +4,8 @@ import CommentListComp from './CommentListComp'
 
 export default function CommentAreaComp({ book, bookId }) {
     const [reviews, setReviews] = useState([]);
+    const [showError, setShowError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const fetchReviews = useCallback(async () => {
         if (!bookId) return;
@@ -19,6 +21,12 @@ export default function CommentAreaComp({ book, bookId }) {
                 setReviews(data);
             }
         } catch (error) {
+            setShowError(true);
+            setErrorMessage(
+                error.message === 'Failed to fetch' 
+                    ? 'Problema di connessione. Verifica la tua rete.'
+                    : 'Qualcosa è andato storto. Riprova più tardi.'
+            );
             console.error("Errore:", error);
         }
     }, [bookId, book?.asin]);
@@ -31,6 +39,7 @@ export default function CommentAreaComp({ book, bookId }) {
         <>
             <AddCommentComp bookId={book.asin} onCommentAdded={fetchReviews}/>
             <CommentListComp reviews={reviews}/>
+            {showError && <div className="error-message">{errorMessage}</div>}
         </>
     )
 }

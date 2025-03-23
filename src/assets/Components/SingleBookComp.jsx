@@ -31,7 +31,7 @@ export default function SingleBookComp({book, isSelected, onBookSelect}) {
               <BookCardComp book={book} />  
             </Col>
             <Col md={9}>
-              <CommentAreaComp book={book} bookId={book.asin} />
+              <CommentAreaComp book={book} bookId={book.asin}/>
             </Col>
           </Row>
         </Modal.Body>
