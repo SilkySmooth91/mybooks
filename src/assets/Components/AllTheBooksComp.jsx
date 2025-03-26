@@ -5,11 +5,9 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import SingleBookComp from './SingleBookComp';
 import BookPlaceholderComp from './BookPlaceholderComp';
 
-export default function AllTheBooksComp() {
+export default function AllTheBooksComp({ books, handleSearch }) {
   const [visibleBooks, setVisibleBooks] = useState(12)
   const [selectedBookId, setSelectedBookId] = useState(null)
-  const [search, setSearch] = useState('')
-  const [books, setBooks] = useState(fantasyBooks)
   const [loading, setLoading] = useState(true)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 
@@ -27,14 +25,7 @@ export default function AllTheBooksComp() {
     }, 1000);
   };
 
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-    console.log(search)
-    const filteredBooks = fantasyBooks.filter((book) => {
-      return book.title.toLowerCase().includes(event.target.value.toLowerCase());
-    });
-    setBooks(filteredBooks);
-  }
+
 
   return (
     <>
@@ -45,11 +36,7 @@ export default function AllTheBooksComp() {
           </Col>
         </Row>
         <Row className="mt-4 mb-4">
-        <Form className='d-flex justify-content-center'>
-          <Form.Group className="mb-3" controlId="searchTitle">
-            <Form.Control className="comment-form" type="input" placeholder="Search for title..." onChange={handleSearch}/>
-          </Form.Group>
-        </Form>
+        
       </Row>
         <Row>
           { loading ? (

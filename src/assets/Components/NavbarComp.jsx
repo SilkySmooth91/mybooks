@@ -1,21 +1,31 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Form, Container, Nav, Navbar } from 'react-bootstrap';
 
 
-export default function NavbarComp() {
+
+export default function NavbarComp({handleSearch}) {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
+        <Container className='align-items-center'>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">About</Nav.Link>
-            <Nav.Link href="#pricing">Browse</Nav.Link>
+            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="#">About</Nav.Link>
+            <Nav.Link href="#">Browse</Nav.Link>
+            <Nav.Link href="#">Fantasy</Nav.Link>
+            <Nav.Link href="#">Sci-Fi</Nav.Link>
+            <Nav.Link href="#">Thriller</Nav.Link>
+            <Nav.Link href="#">Crime</Nav.Link>
+            <Nav.Link href="#">Horror</Nav.Link>
+            <Nav.Link href="#">Romance</Nav.Link>
           </Nav>
+          <Form className='d-flex justify-content-center align-items-center'>
+          <Form.Group controlId="searchTitle">
+            <Form.Control className="comment-form" type="input" placeholder="Search for title..." onChange={handleSearch}/>
+          </Form.Group>
+        </Form>
         </Container>
       </Navbar>
     </>
