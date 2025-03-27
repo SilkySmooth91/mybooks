@@ -2,6 +2,19 @@ body {
   min-height: 100vh;
 }
 
+.theme-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  transition: background-color 0.3s ease-in-out;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
 .container-fluid {
   background-image: url("https://basecamplive.com/wp-content/uploads/2023/02/books.jpeg");
   min-height: 20rem;

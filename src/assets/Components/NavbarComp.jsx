@@ -1,13 +1,18 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Container, Nav, Navbar } from 'react-bootstrap';
+import { Form, Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { useTheme } from '../../context/ThemeContext'
 
 
 
 export default function NavbarComp({handleSearch}) {
+  const {isDarkMode, toggleTheme} = useTheme()
+
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar 
+      bg={isDarkMode ? "dark" : "light"} 
+      variant={isDarkMode ? "dark" : "light"}>
         <Container className='align-items-center'>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
@@ -27,6 +32,11 @@ export default function NavbarComp({handleSearch}) {
           </Form.Group>
         </Form>
         </Container>
+        <Button 
+          variant={isDarkMode ? "light" : "dark"}
+          onClick={toggleTheme}>
+          {isDarkMode ? '☀️' : '🌙'}
+        </Button>
       </Navbar>
     </>
   )

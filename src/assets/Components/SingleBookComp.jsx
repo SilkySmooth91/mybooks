@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row, Modal, } from 'react-bootstrap';
 import BookCardComp from './BookCardComp';
 import CommentAreaComp from './CommentAreaComp';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function SingleBookComp({book, isSelected, onBookSelect}) {
 
@@ -14,14 +15,23 @@ export default function SingleBookComp({book, isSelected, onBookSelect}) {
       onBookSelect(book.asin)
   }
 
-  const handleClose = () => setShowModal(false)  
+  const handleClose = () => setShowModal(false)
+  const { isDarkMode }  = useTheme()
 
   return (
     <>
       <Col key={book.asin} md={3} xs={6} className='mb-4'>
-        <BookCardComp book={book} onClick={handleClick} selected={isSelected} />
+        <BookCardComp 
+          book={book} 
+          onClick={handleClick} 
+          selected={isSelected}
+          className={isDarkMode ? "bg-dark text-white" : "bg-light text-dark"}/>
       </Col>
-      <Modal centered show={showModal} onHide={handleClose} size="lg" contentClassName="bg-dark text-white">
+      <Modal centered 
+        show={showModal} 
+        onHide={handleClose} 
+        size="lg" 
+        contentClassName={isDarkMode ? "bg-dark text-white" : "bg-light text-dark"}>
         <Modal.Header closeButton closeVariant="white">
           <Modal.Title>Recensioni degli utenti</Modal.Title>
         </Modal.Header>

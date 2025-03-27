@@ -5,7 +5,8 @@ import NavbarComp from './assets/Components/NavbarComp'
 import FooterComp from './assets/Components/FooterComp'
 import WelcomeComp from './assets/Components/WelcomeComp'
 import AllTheBooksComp from './assets/Components/AllTheBooksComp';
-import fantasyBooks from './assets/books/fantasy.json';
+import fantasyBooks from './assets/books/fantasy.json'
+import { ThemeProvider } from "./context/ThemeContext.jsx"
 
 
 
@@ -23,12 +24,12 @@ function App() {
   }
 
   return (
-    <>
-      <NavbarComp books={books} handleSearch={handleSearch}></NavbarComp>
-      <WelcomeComp></WelcomeComp>
-      <AllTheBooksComp books={books} handleSearch={handleSearch}></AllTheBooksComp>
-      <FooterComp></FooterComp>
-    </>
+      <ThemeProvider>
+        <NavbarComp books={books} handleSearch={handleSearch}></NavbarComp>
+        <WelcomeComp />
+        <AllTheBooksComp books={books} handleSearch={handleSearch} />
+        <FooterComp />
+      </ThemeProvider>
   )
 }
 
