@@ -5,9 +5,8 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import SingleBookComp from './SingleBookComp';
 import BookPlaceholderComp from './BookPlaceholderComp';
 
-export default function AllTheBooksComp({ books, handleSearch }) {
+export default function AllTheBooksComp({ books, selectedBookId, setSelectedBookId }) {
   const [visibleBooks, setVisibleBooks] = useState(12)
-  const [selectedBookId, setSelectedBookId] = useState(null)
   const [loading, setLoading] = useState(true)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 

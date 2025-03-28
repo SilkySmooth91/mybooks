@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 export default function WelcomeComp() {
   return (
-    <Container fluid className="py-5 d-flex justify-content-center align-items-center">
+    <Container fluid className="welcome-container py-5 d-flex justify-content-center align-items-center">
       <Row className="justify-content-center align-items-center">
         <Col md={12} className="text-center">
           <h1 className="display-4 mb-5">Welcome to MyBooks!</h1>

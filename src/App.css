@@ -15,7 +15,7 @@ body.dark-mode {
   color: white;
 }
 
-.container-fluid {
+.welcome-container {
   background-image: url("https://basecamplive.com/wp-content/uploads/2023/02/books.jpeg");
   min-height: 20rem;
 }
