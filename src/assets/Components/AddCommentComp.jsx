@@ -73,8 +73,8 @@ export default function AddCommentComp({bookId, onCommentAdded}) {
         </Alert>
       )}
       <Form onSubmit={handleSubmit}>
-        <h6>Lascia una recensione</h6>
-            <Form.Label>Il tuo voto</Form.Label>
+        <h6 className='text-white mt-5'>Lascia una recensione</h6>
+            <Form.Label className='text-white'>Il tuo voto</Form.Label>
             <Form.Select 
               value={rate} 
               onChange={(e) => setRate(e.target.value)} aria-label="Seleziona il tuo voto da uno a cinque" 
@@ -87,7 +87,7 @@ export default function AddCommentComp({bookId, onCommentAdded}) {
                 <option value="5">5</option>
             </Form.Select>
             <Form.Group className="mb-3" controlId="comment-area">
-                <Form.Label>Lascia un commento</Form.Label>
+                <Form.Label className='text-white mt-3'>Lascia un commento</Form.Label>
                 <Form.Control 
                   as="textarea" 
                   rows={3}

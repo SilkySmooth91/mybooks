@@ -12,6 +12,7 @@ export default function CommentListComp({reviews}) {
   }
   return (
     <div className='comments-container'>
+      <h4 className='mt-4 mb-3 text-white'>Recensioni degli utenti</h4>
       <SingleCommentComp reviews={reviews} />
     </div>
   )

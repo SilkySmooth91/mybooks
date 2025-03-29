@@ -18,10 +18,10 @@ export default function MainLayoutComp({books}) {
                     <LeftColumnComp 
                         books={books} 
                         selectedBookId={selectedBook?.asin}
-                        onBookSelect={handleBookSelect}
+                        setSelectedBookId={handleBookSelect}
                     />
                 </Col>
-                <Col xs={3} className="bg-dark border-start border-2 border-light">
+                <Col xs={3} className="bg-dark border-start border-2 border-light right-column">
                     <RightColumnComp 
                         selectedBook={selectedBook}
                         bookId={selectedBook?.asin}

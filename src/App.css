@@ -1,13 +1,10 @@
-body {
-  min-height: 100vh;
-}
-
 .theme-transition {
   transition: all 0.3s ease-in-out;
 }
 
 body {
   transition: background-color 0.3s ease-in-out;
+  min-height: 100vh;
 }
 
 body.dark-mode {
@@ -58,7 +55,7 @@ h1 {
 }
 
 .comments-container {
-  max-height: 20rem;
+  max-height: 36rem;
   overflow-y: auto;
 }
 
@@ -71,4 +68,24 @@ h1 {
   height: 100%;
   background-color: #212529;
   color: white;
+}
+
+.right-column {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.right-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-column::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.right-column::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
 }

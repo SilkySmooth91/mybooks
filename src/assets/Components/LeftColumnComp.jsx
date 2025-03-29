@@ -6,7 +6,7 @@ export default function LeftColumnComp({ books, selectedBookId, setSelectedBookI
         <AllTheBooksComp 
             books={books}
             selectedBookId={selectedBookId} 
-            setSelectedBookId={setSelectedBookId}
+            setSelectedBookId={setSelectedBookId} 
         />
     )
 }

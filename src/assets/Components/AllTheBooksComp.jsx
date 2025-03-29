@@ -24,8 +24,6 @@ export default function AllTheBooksComp({ books, selectedBookId, setSelectedBook
     }, 1000);
   };
 
-
-
   return (
     <>
       <Container className="mt-4">
@@ -53,7 +51,8 @@ export default function AllTheBooksComp({ books, selectedBookId, setSelectedBook
                 key={book.asin} 
                 book={book} 
                 isSelected={selectedBookId === book.asin}
-                onBookSelect={setSelectedBookId}/>
+                onBookSelect={setSelectedBookId} 
+              />
             ))
           )
         )}
