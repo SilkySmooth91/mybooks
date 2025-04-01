@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { useTheme } from '../../context/ThemeContext'
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,7 +17,7 @@ export default function NavbarComp({handleSearch}) {
         <Container className='align-items-center'>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav>
-            <Nav.Link href="#">Home</Nav.Link>
+            <Link className='nav-link' to="/">Home</Link>
             <Nav.Link href="#">About</Nav.Link>
             <Nav.Link href="#">Browse</Nav.Link>
             <Nav.Link href="#">Fantasy</Nav.Link>
