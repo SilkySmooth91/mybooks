@@ -12,6 +12,16 @@ body.dark-mode {
   color: white;
 }
 
+.dark-mode .card {
+  background-color: #242424;
+  color: white;
+}
+
+.dark-mode .comment-area {
+  background-color: #242424;
+  color: white;
+}
+
 .welcome-container {
   background-image: url("https://basecamplive.com/wp-content/uploads/2023/02/books.jpeg");
   min-height: 20rem;
