@@ -22,6 +22,16 @@ body.dark-mode {
   color: white;
 }
 
+.page-container {
+  min-height: 100vh;
+  
+}
+
+.page-container.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
 .welcome-container {
   background-image: url("https://basecamplive.com/wp-content/uploads/2023/02/books.jpeg");
   min-height: 20rem;
@@ -30,6 +40,11 @@ body.dark-mode {
 h1, p.lead {
   color: white;
   text-shadow: 0 0 10px rgba(138, 138, 138, 0.5)
+}
+
+.dark-mode h1 {
+  color: white;
+  text-shadow: none;
 }
 
 h1 {
@@ -98,4 +113,9 @@ h1 {
 .right-column::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 4px;
+}
+
+.notfound-dino {
+  max-width: 20rem;
+  max-height: 20rem;
 }

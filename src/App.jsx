@@ -7,6 +7,7 @@ import NavbarComp from './assets/Components/NavbarComp'
 import FooterComp from './assets/Components/FooterComp'
 import { useState } from 'react'
 import fantasyBooks from './assets/books/fantasy.json'
+import NotFoundPage from './assets/Pages/NotFoundPage.jsx'
 
 function App() {
   const [search, setSearch] = useState('')
@@ -27,6 +28,7 @@ function App() {
         <NavbarComp books={books} handleSearch={handleSearch} />
         <Routes>
           <Route path="/" element={<HomePage />} search={search} />
+          <Route path="/notfound" element={<NotFoundPage />} />
         </Routes>
       </ThemeProvider>
       <FooterComp />
