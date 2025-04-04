@@ -13,7 +13,7 @@ export default function CommentAreaComp({ bookId, refresh }) {
         try {
             let response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${bookId}`, {
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JkZmJjMjFlMTQwNjAwMTUzMTRkMmEiLCJpYXQiOjE3NDI1ODA2NDIsImV4cCI6MTc0Mzc5MDI0Mn0.a8BdwHTz9pB4-btjBrwLz6BxrO2tq8bHLUeqdFLO2KM"
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JkZmJjMjFlMTQwNjAwMTUzMTRkMmEiLCJpYXQiOjE3NDM3OTM3OTQsImV4cCI6MTc0NTAwMzM5NH0.SCJoU4vAZ4U3p--sEhQSqh8md25fljKNa5pOOonGNmQ"
                 }
             });
             if (response.ok) {

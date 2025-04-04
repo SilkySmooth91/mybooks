@@ -8,7 +8,7 @@ export default function WelcomeComp() {
       <Row className="justify-content-center align-items-center">
         <Col md={12} className="text-center">
           <h1 className="display-4 mb-5">Welcome to MyBooks!</h1>
-          <p className="lead">
+          <p className="lead fw-bold">
             Benvenuti nella nostra libreria. Scopri tutti i titoli che abbiamo in serbo per te!
           </p>
         </Col>

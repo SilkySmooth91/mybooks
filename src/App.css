@@ -24,7 +24,9 @@ body.dark-mode {
 
 .page-container {
   min-height: 100vh;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .page-container.dark-mode {
@@ -116,6 +118,7 @@ h1 {
 }
 
 .notfound-dino {
-  max-width: 20rem;
-  max-height: 20rem;
+  max-width: 40rem;
+  max-height: 40rem;
+  background: none !important;
 }
