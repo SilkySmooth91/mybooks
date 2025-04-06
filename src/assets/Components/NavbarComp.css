@@ -1,0 +1,30 @@
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  color: #6c757d;
+}
+
+.search-input {
+  width: 2.5rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 30px;
+  padding-left: 0.75rem;
+  cursor: pointer;
+}
+
+.search-input.expanded {
+  width: 18.75rem;
+  padding-left: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: none;
+}

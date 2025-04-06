@@ -9,13 +9,15 @@ export default function AllTheBooksComp({ books, selectedBookId, setSelectedBook
   const [visibleBooks, setVisibleBooks] = useState(12);
   const [loading, setLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const placeholderCount = visibleBooks - books.length;
+
+  const shouldShowPlaceholders = visibleBooks < books.length;
+  const placeholderCount = shouldShowPlaceholders ? visibleBooks - books.slice(0, visibleBooks).length : 0;
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
-    }, 1500)
-  }, [])
+      setLoading(false);
+    }, 1500);
+  }, []);
 
   const loadMoreBooks = () => {
     setIsLoadingMore(true);
@@ -53,12 +55,12 @@ export default function AllTheBooksComp({ books, selectedBookId, setSelectedBook
               />
             ))
           )}
-          {placeholderCount > 0 &&
+          {shouldShowPlaceholders &&
             [...Array(placeholderCount)].map((_, index) => (
               <BookPlaceholderComp key={`placeholder-${index}`} />
             ))}
         </Row>
-        {visibleBooks < books.length && (
+        {books.length > visibleBooks && (
           <Row className="mt-4">
             <Col className="text-center">
               <Button

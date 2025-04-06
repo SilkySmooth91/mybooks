@@ -14,14 +14,14 @@ export default function MainLayoutComp({books}) {
     return (
         <Container fluid>
             <Row>
-                <Col xs={9}>
+                <Col xs={6} md={9}>
                     <LeftColumnComp 
                         books={books} 
                         selectedBookId={selectedBook?.asin}
                         setSelectedBookId={handleBookSelect}
                     />
                 </Col>
-                <Col xs={3} className="bg-dark border-start border-2 border-light right-column">
+                <Col xs={6} md={3} className="bg-dark border-start border-2 border-light right-column">
                     <RightColumnComp 
                         selectedBook={selectedBook}
                         bookId={selectedBook?.asin}

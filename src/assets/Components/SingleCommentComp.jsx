@@ -14,7 +14,7 @@ export default function SingleCommentComp({reviews}) {
     return new Date(dateString).toLocaleDateString('it-IT', options)
   }
   return (
-    <ListGroup>
+    <ListGroup data-testid="comment-list" >
         {reviews.map((review) => (
           <ListGroup.Item key={review._id} className="bg-dark text-white">
             <p>{review.author} <span> - {formatDate(review.createdAt)}</span></p>

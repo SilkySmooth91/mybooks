@@ -11,23 +11,24 @@ import NotFoundPage from './assets/Pages/NotFoundPage.jsx'
 
 function App() {
   const [search, setSearch] = useState('')
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState(fantasyBooks)
+  
   const handleSearch = (event) => {
-      const searchTerm = event.target.value
-      setSearch(searchTerm)
-      
-      const filteredBooks = fantasyBooks.filter(book => 
-        book.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      setBooks(filteredBooks)
-    }
+    const searchTerm = event.target.value
+    setSearch(searchTerm)
+    
+    const filteredBooks = fantasyBooks.filter(book => 
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    setBooks(filteredBooks)
+  }
 
   return (
     <BrowserRouter>
       <ThemeProvider>
-        <NavbarComp books={books} handleSearch={handleSearch} />
+        <NavbarComp handleSearch={handleSearch} />
         <Routes>
-          <Route path="/" element={<HomePage />} search={search} />
+          <Route path="/" element={<HomePage books={books} />} />
           <Route path="/notfound" element={<NotFoundPage />} />
         </Routes>
       </ThemeProvider>
