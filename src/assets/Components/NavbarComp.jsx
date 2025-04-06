@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Form, Container, Nav, Navbar, Button, Image } from 'react-bootstrap';
 import { useTheme } from '../../context/ThemeContext'
 import { Link } from 'react-router-dom';
 import './NavbarComp.css'
@@ -12,20 +12,36 @@ export default function NavbarComp({handleSearch}) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <>
-      <Navbar 
+    <Navbar 
       bg={isDarkMode ? "dark" : "light"} 
-      variant={isDarkMode ? "dark" : "light"}>
-        <Container className='align-items-center'>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav>
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/notfound">About</Nav.Link>
-            <Nav.Link as={Link} to="/notfound">Browse</Nav.Link>
-            <Nav.Link as={Link} to="/notfound">Fantasy</Nav.Link>
-            <Nav.Link as={Link} to="/notfound">Sci-Fi</Nav.Link>
+      variant={isDarkMode ? "dark" : "light"}
+      expand="lg"
+      className="py-2">
+      <Container className='align-items-center justify-content-between'>
+        <Navbar.Brand href="#home" className="me-2">
+          <Image 
+            src='src/assets/IMGS/book-logo.png' 
+            alt='logo' 
+            height={50} 
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
+
+        {/* Hamburger menu for mobile */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="d-lg-none" />
+        
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
+          <Nav className="mx-3">
+            <Nav.Link as={Link} to="/" className="px-2">Home</Nav.Link>
+            <Nav.Link as={Link} to="/notfound" className="px-2">About</Nav.Link>
+            <Nav.Link as={Link} to="/notfound" className="px-2">Browse</Nav.Link>
+            <Nav.Link as={Link} to="/notfound" className="px-2">Fantasy</Nav.Link>
+            <Nav.Link as={Link} to="/notfound" className="px-2">Sci-Fi</Nav.Link>
           </Nav>
-          <Form className='d-flex justify-content-center align-items-center search-container'>
+        </Navbar.Collapse>
+
+        <div className="d-flex align-items-center gap-3">
+          <Form className='search-container'>
             <Form.Group controlId="searchTitle" className="position-relative">
               <Form.Control 
                 className={`search-input ${isExpanded ? 'expanded' : ''}`}
@@ -43,13 +59,15 @@ export default function NavbarComp({handleSearch}) {
               )}
             </Form.Group>
           </Form>
+          
           <Button 
             variant={isDarkMode ? "light" : "dark"}
-            onClick={toggleTheme}>
+            onClick={toggleTheme}
+            className="ms-2">
             {isDarkMode ? '☀️' : '🌙'}
           </Button>
-        </Container>
-      </Navbar>
-    </>
+        </div>
+      </Container>
+    </Navbar>
   )
 }
