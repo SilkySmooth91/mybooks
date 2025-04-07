@@ -3,7 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 import RightColumnComp from './RightColumnComp'
 import LeftColumnComp from './LeftColumnComp'
 
-export default function MainLayoutComp({books}) {
+export default function MainLayoutComp({books, currentCategory}) {
     const [selectedBook, setSelectedBook] = useState(null)
 
     const handleBookSelect = (bookId) => {
@@ -19,6 +19,7 @@ export default function MainLayoutComp({books}) {
                         books={books} 
                         selectedBookId={selectedBook?.asin}
                         setSelectedBookId={handleBookSelect}
+                        currentCategory={currentCategory}
                     />
                 </Col>
                 <Col xs={6} md={3} className="bg-dark border-start border-2 border-light right-column">

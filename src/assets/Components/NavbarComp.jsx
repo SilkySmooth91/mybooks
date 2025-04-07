@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Container, Nav, Navbar, Button, Image } from 'react-bootstrap';
+import { Form, Container, Nav, Navbar, Button, Image, NavDropdown } from 'react-bootstrap';
 import { useTheme } from '../../context/ThemeContext'
 import { Link } from 'react-router-dom';
 import './NavbarComp.css'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function NavbarComp({handleSearch}) {
+export default function NavbarComp({handleSearch, onCategoryChange}) {
   const {isDarkMode, toggleTheme} = useTheme()
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -18,7 +18,7 @@ export default function NavbarComp({handleSearch}) {
       expand="lg"
       className="py-2">
       <Container className='align-items-center justify-content-between'>
-        <Navbar.Brand href="#home" className="me-2">
+        <Navbar.Brand as={Link} to="/" className="me-2">
           <Image 
             src='src/assets/IMGS/book-logo.png' 
             alt='logo' 
@@ -27,7 +27,6 @@ export default function NavbarComp({handleSearch}) {
           />
         </Navbar.Brand>
 
-        {/* Hamburger menu for mobile */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="d-lg-none" />
         
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
@@ -35,8 +34,41 @@ export default function NavbarComp({handleSearch}) {
             <Nav.Link as={Link} to="/" className="px-2">Home</Nav.Link>
             <Nav.Link as={Link} to="/notfound" className="px-2">About</Nav.Link>
             <Nav.Link as={Link} to="/notfound" className="px-2">Browse</Nav.Link>
-            <Nav.Link as={Link} to="/notfound" className="px-2">Fantasy</Nav.Link>
-            <Nav.Link as={Link} to="/notfound" className="px-2">Sci-Fi</Nav.Link>
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title="Genres"
+              menuVariant="dark">
+              <NavDropdown.Item 
+                as={Link} 
+                to="/"
+                onClick={() => onCategoryChange('Fantasy')}>
+                Fantasy
+                </NavDropdown.Item>
+              <NavDropdown.Item 
+                as={Link} 
+                to="/category/history"
+                onClick={() => onCategoryChange('History')}>
+                History
+                </NavDropdown.Item>
+                <NavDropdown.Item 
+                  as={Link} 
+                  to="/category/horror"
+                  onClick={() => onCategoryChange('Horror')}>
+                  Horror
+                </NavDropdown.Item>
+                <NavDropdown.Item 
+                  as={Link} 
+                  to="/category/romance"
+                  onClick={() => onCategoryChange('Romance')}>
+                  Romance
+                </NavDropdown.Item>              
+                <NavDropdown.Item 
+                  as={Link} 
+                  to="/category/scifi"
+                  onClick={() => onCategoryChange('Sci-Fi')}>
+                  Sci-Fi
+                </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
 

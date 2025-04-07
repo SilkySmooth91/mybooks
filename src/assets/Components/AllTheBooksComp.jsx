@@ -5,7 +5,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import SingleBookComp from './SingleBookComp';
 import BookPlaceholderComp from './BookPlaceholderComp';
 
-export default function AllTheBooksComp({ books, selectedBookId, setSelectedBookId }) {
+export default function AllTheBooksComp({ books, selectedBookId, setSelectedBookId, currentCategory }) {
   const [visibleBooks, setVisibleBooks] = useState(12);
   const [loading, setLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -32,7 +32,7 @@ export default function AllTheBooksComp({ books, selectedBookId, setSelectedBook
       <Container className="mt-4">
         <Row className="mt-5 mb-4">
           <Col>
-            <h2 className="fw-bold">Libri Fantasy</h2>
+            <h2 className="fw-bold">Libri {currentCategory}</h2>
           </Col>
         </Row>
         <Row className="mt-4 mb-4"></Row>
